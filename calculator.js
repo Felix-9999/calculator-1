@@ -96,7 +96,9 @@ clearAllEl.addEventListener("click", () => {
     resultShow.innerText = x
 });
 
+
+
 clea1Num.addEventListener("click", () => {
-    clea1Num.innerText = "";
+    shoTwoNum.innerText = "";
     dis2Num = "";
 });
