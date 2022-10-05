@@ -7,72 +7,67 @@ const equalEl = document.querySelector(".equal");
 const clea1Num = document.querySelector(".clea-1Num");
 const clearAllEl = document.querySelector(".all-clear");
 
-
-
-
-
-
 let dis1Num = "";
 let dis2Num = "";
 let result = "";
 let lastOperation = "";
 let haveDot = false;
-let x = 0
+let x = 0;
 
 numbersEl.forEach((number) => {
-    number.addEventListener(("click"), (e) => {
+    number.addEventListener("click", (e) => {
         if (e.target.innerText === "." && !haveDot) {
-            haveDot = false
+            haveDot = false;
         } else if (e.target.innerText === "." && haveDot) {
-            return
+            return;
         }
-        dis2Num += e.target.innerText
-        shoTwoNum.innerText = dis2Num
-    })
-})
+        dis2Num += e.target.innerText;
+        shoTwoNum.innerText = dis2Num;
+    });
+});
 
 sign.forEach((operation) => {
-    operation.addEventListener(("click"), (e) => {
-        if (!shoOneNum) return
-        haveDot = false
+    operation.addEventListener("click", (e) => {
+        if (!shoOneNum) return;
+        haveDot = false;
 
-        const operationName = e.target.innerText
+        const operationName = e.target.innerText;
         if (dis1Num && dis2Num && lastOperation) {
             mathOperation();
         } else {
-            result = +dis2Num
+            result = +dis2Num;
         }
-        clearVar(operationName)
-        lastOperation = operationName
-    })
-})
+        clearVar(operationName);
+        lastOperation = operationName;
+    });
+});
 
 function clearVar(name = "") {
-    dis1Num += dis2Num + " " + name
-    shoOneNum.innerText = dis1Num
-    shoTwoNum.innerText = ""
-    dis2Num = ""
-    resultShow.innerText = result
+    dis1Num += dis2Num + " " + name;
+    shoOneNum.innerText = dis1Num;
+    shoTwoNum.innerText = "";
+    dis2Num = "";
+    resultShow.innerText = result;
 }
 
 equalEl.addEventListener("click", () => {
-    if (!dis2Num || !dis2Num) return
-    haveDot = false
-    mathOperation()
-    clearVar()
-    shoTwoNum.innerText = result
+    if (!dis2Num || !dis2Num) return;
+    haveDot = false;
+    mathOperation();
+    clearVar();
+    shoTwoNum.innerText = result;
     resultShow.innerText = "";
     dis2Num = result;
     dis1Num = "";
-})
+});
 
 function mathOperation() {
     if (lastOperation === "/") {
-        result = result / +dis2Num
+        result = result / +dis2Num;
         if (result === Infinity) {
-            result = ""
-            dis2Num = x
-            dis1Num = x
+            result = "";
+            dis2Num = x;
+            dis1Num = x;
         }
     }
     if (lastOperation === "X") {
@@ -84,19 +79,17 @@ function mathOperation() {
     } else if (lastOperation === "%") {
         result = parseFloat(result) % parseFloat(dis2Num);
     }
-    123
+    123;
 }
 
 clearAllEl.addEventListener("click", () => {
-    dis1Num = ""
-    dis2Num = ""
-    shoOneNum.innerText = 0
-    shoTwoNum.innerText = ""
-    result = x
-    resultShow.innerText = x
+    dis1Num = "";
+    dis2Num = "";
+    shoOneNum.innerText = 0;
+    shoTwoNum.innerText = "";
+    result = x;
+    resultShow.innerText = x;
 });
-
-
 
 clea1Num.addEventListener("click", () => {
     shoTwoNum.innerText = "";

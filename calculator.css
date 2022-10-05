@@ -34,6 +34,11 @@ body {
     font-size: 20px;
     height: 20px;
     overflow: hidden;
+    overflow-wrap: break-word;
+}
+
+.show-2 {
+    overflow-wrap: break-word;
 }
 
 .result-show {
